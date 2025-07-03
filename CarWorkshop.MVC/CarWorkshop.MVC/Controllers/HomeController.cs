@@ -36,13 +36,13 @@ public class HomeController : Controller
         {
             new Person()
             {
-                FirstName = "Jakub",
-                LastName = "Kozera"
+                FirstName = "Maciej",
+                LastName = "PPPP"
             },
             new Person()
             {
-                FirstName = "Adam",
-                LastName = "Małysz"
+                FirstName = "Miłosz",
+                LastName = "SSSS"
             },
 
         };
