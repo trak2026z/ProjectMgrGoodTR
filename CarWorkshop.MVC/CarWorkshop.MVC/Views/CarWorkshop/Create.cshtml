@@ -1,0 +1,50 @@
+﻿@model CarWorkshop.Domain.Entities.CarWorkshop
+
+@{
+    ViewBag.Title = "Nowy warsztat";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2>Dodaj warsztat</h2>
+            <form asp-action="Create" method="post">
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label">Nazwa <span class="text-danger">*</span></label>
+                    <input asp-for="Name" class="form-control" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="form-label">Opis</label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="About" class="form-label">O warsztacie</label>
+                    <textarea asp-for="About" class="form-control" rows="3"></textarea>
+                </div>
+                <fieldset class="form-group mb-3">
+                    <legend>Dane kontaktowe</legend>
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactDetails.PhoneNumber" class="form-label">Telefon</label>
+                        <input asp-for="ContactDetails.PhoneNumber" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactDetails.Street" class="form-label">Ulica</label>
+                        <input asp-for="ContactDetails.Street" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactDetails.City" class="form-label">Miasto</label>
+                        <input asp-for="ContactDetails.City" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactDetails.PostalCode" class="form-label">Kod pocztowy</label>
+                        <input asp-for="ContactDetails.PostalCode" class="form-control" />
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                    <button type="reset" class="btn btn-secondary">Wyczyść</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
