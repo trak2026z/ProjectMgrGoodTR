@@ -1,4 +1,4 @@
-﻿@model CarWorkshop.Domain.Entities.CarWorkshop
+﻿@model CarWorkshop.Application.DTOs.CarWorkshopDto
 
 @{
     ViewBag.Title = "Nowy warsztat";
@@ -24,20 +24,20 @@
                 <fieldset class="form-group mb-3">
                     <legend>Dane kontaktowe</legend>
                     <div class="form-group mb-3">
-                        <label asp-for="ContactDetails.PhoneNumber" class="form-label">Telefon</label>
-                        <input asp-for="ContactDetails.PhoneNumber" class="form-control" />
+                        <label asp-for="PhoneNumber" class="form-label">Telefon</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="ContactDetails.Street" class="form-label">Ulica</label>
-                        <input asp-for="ContactDetails.Street" class="form-control" />
+                        <label asp-for="Street" class="form-label">Ulica</label>
+                        <input asp-for="Street" class="form-control" />
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="ContactDetails.City" class="form-label">Miasto</label>
-                        <input asp-for="ContactDetails.City" class="form-control" />
+                        <label asp-for="City" class="form-label">Miasto</label>
+                        <input asp-for="City" class="form-control" />
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="ContactDetails.PostalCode" class="form-label">Kod pocztowy</label>
-                        <input asp-for="ContactDetails.PostalCode" class="form-control" />
+                        <label asp-for="PostalCode" class="form-label">Kod pocztowy</label>
+                        <input asp-for="PostalCode" class="form-control" />
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-between">
