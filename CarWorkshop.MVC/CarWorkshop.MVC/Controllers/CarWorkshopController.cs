@@ -23,6 +23,11 @@ namespace CarWorkshop.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CarWorkshopDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             await _carWorkshopService.CreateAsync(dto);
             return RedirectToAction(nameof(Create));
         }

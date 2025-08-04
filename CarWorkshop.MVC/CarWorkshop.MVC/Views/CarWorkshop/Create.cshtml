@@ -1,4 +1,6 @@
-﻿@model CarWorkshop.Application.DTOs.CarWorkshopDto
+﻿@using CarWorkshop.Application.DTOs;
+
+@model CarWorkshopDto
 
 @{
     ViewBag.Title = "Nowy warsztat";
@@ -12,10 +14,12 @@
                 <div class="form-group mb-3">
                     <label asp-for="Name" class="form-label">Nazwa <span class="text-danger">*</span></label>
                     <input asp-for="Name" class="form-control" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label asp-for="Description" class="form-label">Opis</label>
                     <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label asp-for="About" class="form-label">O warsztacie</label>
@@ -26,6 +30,7 @@
                     <div class="form-group mb-3">
                         <label asp-for="PhoneNumber" class="form-label">Telefon</label>
                         <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
                         <label asp-for="Street" class="form-label">Ulica</label>
