@@ -10,5 +10,6 @@ namespace CarWorkshop.Domain.Interfaces
     {
         Task Create(CarWorkshop.Domain.Entities.CarWorkshop carWorkshop);
         Task<Domain.Entities.CarWorkshop?> GetByName(string name);
+        Task<IEnumerable<CarWorkshop.Domain.Entities.CarWorkshop>> GetAll();
     }
 }
