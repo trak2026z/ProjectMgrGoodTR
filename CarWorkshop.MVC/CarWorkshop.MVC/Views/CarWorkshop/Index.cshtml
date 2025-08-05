@@ -15,7 +15,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">@item.PhoneNumber</h6>
                         <p class="card-text">@item.Description</p>
                         <a class="btn btn-primary btn-sm me-2" asp-controller="CarWorkshop" asp-action="Details" asp-route-encodedName="@item.Name">Details</a>
-                        <a href="#" class="btn btn-outline-secondary">Edit</a>
+                        <a class="btn btn-secondary btn-sm" asp-controller="CarWorkshop" asp-action="Edit" asp-route-encodedName="@item.Name">Edit</a>
                     </div>
                 </div>
             </div>
