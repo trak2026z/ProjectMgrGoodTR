@@ -4,6 +4,10 @@
     ViewBag.Title = "Lista warsztatów";
 }
 
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Create new</a>
+</p>
+
 <div class="container mt-5">
     <div class="row">
         @foreach (var item in Model)
