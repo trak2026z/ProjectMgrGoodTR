@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarWorkshop.Application.ApplicationUser;
 using CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkshop;
 using CarWorkshop.Application.DTOs;
 using CarWorkshop.Domain.Entities;
@@ -7,8 +8,10 @@ namespace CarWorkshop.Application.Mappings
 {
     public class CarWorkshopMappingProfile : Profile
     {
-        public CarWorkshopMappingProfile()
+        public CarWorkshopMappingProfile(IUserContext userContext)
         {
+            var user = userContext.GetCurrentUser();
+
             CreateMap<CarWorkshopDto, Domain.Entities.CarWorkshop>()
                 .ForMember(dest => dest.ContactDetails, opt => opt.MapFrom(src => new CarWorkshopContactDetails
                 {
@@ -22,9 +25,14 @@ namespace CarWorkshop.Application.Mappings
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.ContactDetails.City))
                 .ForMember(dest => dest.Street, opt => opt.MapFrom(src => src.ContactDetails.Street))
                 .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.ContactDetails.PostalCode))
-                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.ContactDetails.PhoneNumber));
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.ContactDetails.PhoneNumber))
+                .ForMember(dest => dest.CreatedById, opt => opt.MapFrom(src => src.CreatedById))
+                .ForMember(dest => dest.IsEditable, opt =>
+                    opt.MapFrom(src => userContext.GetCurrentUser() != null && src.CreatedById == userContext.GetCurrentUser().Id)); ;
 
             CreateMap<CarWorkshopDto, EditCarWorkshopCommand>();
         }
     }
 }
+
+
