@@ -5,6 +5,7 @@ using CarWorkshop.Application.CarWorkshop.Queries.GetAllCarWorkshops;
 using CarWorkshop.Application.CarWorkshop.Queries.GetCarWorkshopByEncodedName;
 using CarWorkshop.Application.DTOs;
 using CarWorkshop.Domain.Entities;
+using CarWorkshop.MVC.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -80,6 +81,8 @@ namespace CarWorkshop.MVC.Controllers
             {
                 return View(command);
             }
+
+            this.SetNotification("success", $"Created carworkshop: {command.Name}");
 
             await _mediator.Send(command);
             return RedirectToAction(nameof(Create));
