@@ -1,8 +1,6 @@
 ﻿using CarWorkshop.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CarWorkshop.MVC.Extensions
 {

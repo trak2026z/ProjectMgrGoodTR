@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarWorkshop.Application.ApplicationUser;
 using CarWorkshop.Domain.Interfaces;
 using MediatR;
 using System;
@@ -13,13 +14,16 @@ namespace CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkshop
     {
         private readonly ICarworkshopRepository _carworkshopRepository;
         private readonly IMapper _mapper;
+        private readonly IUserContext _userContext;
 
         public CreateCarWorkshopCommandHandler(
             ICarworkshopRepository carworkshopRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IUserContext userContext)
         {
             _carworkshopRepository = carworkshopRepository;
             _mapper = mapper;
+            _userContext = userContext;
         }
 
         public async Task<Unit> Handle(CreateCarWorkshopCommand request, CancellationToken cancellationToken)
