@@ -32,7 +32,7 @@ namespace CarWorkshop.MVC.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Owner")]
         public IActionResult Create()
         {
             return View(new CarWorkshopDto());
@@ -73,7 +73,7 @@ namespace CarWorkshop.MVC.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Create(CreateCarWorkshopCommand command)
         {
             if (!ModelState.IsValid)
