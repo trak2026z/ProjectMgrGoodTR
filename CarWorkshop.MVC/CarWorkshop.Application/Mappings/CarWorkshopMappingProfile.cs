@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarWorkshop.Application.ApplicationUser;
+using CarWorkshop.Application.CarWorkshop;
 using CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkshop;
 using CarWorkshop.Application.DTOs;
 using CarWorkshop.Domain.Entities;
@@ -28,9 +29,13 @@ namespace CarWorkshop.Application.Mappings
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.ContactDetails.PhoneNumber))
                 .ForMember(dest => dest.CreatedById, opt => opt.MapFrom(src => src.CreatedById))
                 .ForMember(dest => dest.IsEditable, opt =>
-                    opt.MapFrom(src => userContext.GetCurrentUser() != null && (src.CreatedById == userContext.GetCurrentUser().Id || userContext.GetCurrentUser().IsInRole("Moderator")))); ;
+                    opt.MapFrom(src => userContext.GetCurrentUser() != null 
+                    && (src.CreatedById == userContext.GetCurrentUser().Id ||
+                        userContext.GetCurrentUser().IsInRole("Moderator")))); ;
 
             CreateMap<CarWorkshopDto, EditCarWorkshopCommand>();
+
+            CreateMap<CarWorkshopService, CarWorkshopServiceDto>().ReverseMap();
         }
     }
 }
